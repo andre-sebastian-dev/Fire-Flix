@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function Home(){
     const [filmes, setFilmes] = useState([]);
+    const [load, setLoad] = useState(true)
 
     useEffect(()=>{
 
@@ -20,17 +21,27 @@ function Home(){
             }
         })
             setFilmes(response.data.results)
-            console.log(response.data.results)
-            console.log(filmes)
+            setLoad(false)
         }
         loadFilmes();
+        
     },[])
+
+if(load){
+    return(
+        <div className="load">
+            <h2>Carregando a página...</h2>
+        </div>
+    )
+    
+}
+
     return(
         <div className="container">
             <div className="lista-filmes">
                 {filmes.map((filme)=>{
                     return(
-                         <article key={filme.id}>
+                         <article key={filme.id} className="article">
                         <strong className="titulo">{filme.title}</strong>
                         <img className="capa" src={`http://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}/>
                         <Link className="acessar" to={`/sobre/${filme.id}`}>Acessar</Link>

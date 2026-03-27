@@ -15,7 +15,7 @@ function RoutesApp(){
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/favoritos" element={<Favoritos/>}/> 
-            <Route path="/sobre" element={<Sobre/>}/>
+            <Route path="/sobre/:id" element={<Sobre/>}/>
 
 
             <Route path="*" element={<Err/>}/>           
