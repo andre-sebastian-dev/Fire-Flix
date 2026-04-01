@@ -15,7 +15,7 @@
 .capa{
     width: 1000px;
     max-width: 100%;
-    max-height: 650px;
+    max-height: 550px;
     object-fit: cover;
     display: block;
     border-radius: 8px 8px 0 0;
@@ -37,6 +37,10 @@
     font-size: 25px;
     color: #FFF;
     margin-bottom: 20px;
+    transition: all 0.7s;
+}
+.acessar:hover{
+    color: #000;
 }
 .load{
     display: flex;
