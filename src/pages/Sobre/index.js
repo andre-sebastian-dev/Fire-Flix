@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Navigate, replace, useNavigate, useParams } from "react-router-dom";
 import "./Style.css"
 
 import api from "../../services/api";
@@ -8,6 +8,7 @@ function Sobre(){
     const [detalhes, setDetalhes] = useState({})
     const [loading, setLoading] = useState(true)
     const {id} = useParams()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         async function loadDetail(){
@@ -23,6 +24,8 @@ function Sobre(){
             })
             .catch(()=>{
                 console.log("Filme não encontrado")
+                navigate("/", {replace: true});
+                return;
             })
         }
 
@@ -32,6 +35,24 @@ function Sobre(){
         
     })
     },[])
+
+    function salvarFilme(){
+        const favorito = localStorage.getItem("@favorito");
+
+        let filmesSalvos = JSON.parse(favorito) || [];
+
+        const hasFilmes = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === detalhes.id)
+        if(hasFilmes){
+            alert("Esse filme já foi salvo!")
+            return;
+        }
+        else{
+            filmesSalvos.push(detalhes)
+            localStorage.setItem("@favorito", JSON.stringify(filmesSalvos))
+            alert("Filme salvo com sucesso")
+        }
+
+    }
 
     if(loading){
         return(
@@ -51,7 +72,11 @@ function Sobre(){
            <h3>Sinópse</h3>
            <p>{detalhes.overview}</p>
            <strong> Avaliação {detalhes.vote_average} / 10</strong>
-           <button>Favoritar</button>
+           
+           <div className="button">
+            <button onClick={salvarFilme}>Favoritar</button>
+            <Link rel="external" to={`https://www.youtube.com/results?search_query=${detalhes.title} trailer`} target="blank">Trailer</Link>
+           </div>
         </div>
         </div>
     );

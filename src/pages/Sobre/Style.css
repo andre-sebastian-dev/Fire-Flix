@@ -36,10 +36,18 @@
 .filme-info strong{
     font-size: 23px;
 }
-.filme-info button{
+.button{
+    display: flex;
+    align-items: center;
+   
+}
+.button button{
     background-color:#cf2b0e;
+    cursor: pointer;
     border: 0;
     border-radius: 4px;
+    padding: 0 15px;
+    margin-right: 2%;
     height: 40px;
     margin-top: 15px;
     margin-bottom: 40px;
@@ -48,6 +56,26 @@
     font-size: 18px;
     transition: all 0.7s;
 }
-.filme-info button:hover{
+.button button:hover{
     color: #000;
+    
+}
+.button a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #FFF;
+    justify-content: center;
+    height: 40px;
+    background-color: #cf2b0e;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    margin-top: 15px;
+    padding: 0 28px;
+    font-weight: bold;
+    transition: all 0.7s;  
+}
+.button a:hover{
+    color: #000;
+    
 }
