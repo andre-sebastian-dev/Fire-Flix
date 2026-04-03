@@ -1,6 +1,7 @@
 import "./style.css"
 import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 function Favoritos(){
@@ -17,6 +18,7 @@ function Favoritos(){
         })
         setFilmes(filtrofilmes);
         localStorage.setItem("@favorito", JSON.stringify(filtrofilmes))
+        toast.success("filme excluido com sucesso")
     }
 
 

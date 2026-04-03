@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, Navigate, replace, useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import "./Style.css"
 
 import api from "../../services/api";
@@ -43,14 +44,16 @@ function Sobre(){
 
         const hasFilmes = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === detalhes.id)
         if(hasFilmes){
-            alert("Esse filme já foi salvo!")
+            toast.warn("Esse filme já foi salvo!")
             return;
         }
         else{
             filmesSalvos.push(detalhes)
             localStorage.setItem("@favorito", JSON.stringify(filmesSalvos))
-            alert("Filme salvo com sucesso")
+            toast.success("Filme salvo com sucesso")
         }
+
+        
 
     }
 
