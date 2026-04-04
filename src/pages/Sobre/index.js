@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, Navigate, replace, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Style.css"
 
@@ -8,8 +8,8 @@ import api from "../../services/api";
 function Sobre(){
     const [detalhes, setDetalhes] = useState({})
     const [loading, setLoading] = useState(true)
-    const {id} = useParams()
-    const navigate = useNavigate()
+    const {id} = useParams();
+    const navigate = useNavigate();
 
     useEffect(()=>{
         async function loadDetail(){
@@ -71,7 +71,7 @@ function Sobre(){
         <div className="container">
         <div className="filme-info">
             <h1>{detalhes.title}</h1>
-           <img src={`http://image.tmdb.org/t/p/original/${detalhes.backdrop_path}`}/>
+           <img alt={detalhes.title} src={`http://image.tmdb.org/t/p/original/${detalhes.backdrop_path}`}/>
            <h3>Sinópse</h3>
            <p>{detalhes.overview}</p>
            <strong> Avaliação {detalhes.vote_average} / 10</strong>

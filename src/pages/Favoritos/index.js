@@ -8,7 +8,7 @@ function Favoritos(){
     const [filmes,setFilmes] = useState([])
 
     useEffect(()=>{
-        const minhaLista = localStorage .getItem("@favorito");
+        const minhaLista = localStorage.getItem("@favorito");
         setFilmes(JSON.parse(minhaLista) || []);
     },[])
 
@@ -35,7 +35,7 @@ function Favoritos(){
                         <div className="hud">
                         <Link to={`/sobre/${item.id}`} className="posicao">
 
-                            <img key={item.id} src={`http://image.tmdb.org/t/p/original/${item.poster_path}`}/>
+                            <img key={item.id} alt={item.title} src={`http://image.tmdb.org/t/p/original/${item.poster_path}`}/>
                             <div className="li">
                                 <li className="bold" key={item.id}>{item.title}</li>
                                 <li key={item.id}>{item.overview}</li>
