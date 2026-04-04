@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Style.css"
 
@@ -9,7 +9,7 @@ function Sobre(){
     const [detalhes, setDetalhes] = useState({})
     const [loading, setLoading] = useState(true)
     const {id} = useParams();
-    const navigate = useNavigate();
+    
 
     useEffect(()=>{
         async function loadDetail(){
@@ -25,15 +25,12 @@ function Sobre(){
             })
             .catch(()=>{
                 console.log("Filme não encontrado")
-                navigate("/", {replace: true});
                 return;
             })
         }
 
     loadDetail();
-
-    return (()=>{
-        
+    return (()=>{    
     })
     },[])
 
