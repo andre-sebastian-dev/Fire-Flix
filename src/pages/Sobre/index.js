@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "./Style.css"
 
@@ -9,7 +9,7 @@ function Sobre(){
     const [detalhes, setDetalhes] = useState({})
     const [loading, setLoading] = useState(true)
     const {id} = useParams();
-    
+    const navigate = useNavigate();
 
     useEffect(()=>{
         async function loadDetail(){
@@ -25,14 +25,14 @@ function Sobre(){
             })
             .catch(()=>{
                 console.log("Filme não encontrado")
+                navigate("/", {replace: true});
                 return;
             })
         }
-
     loadDetail();
     return (()=>{    
     })
-    },[])
+    },[id,navigate])
 
     function salvarFilme(){
         const favorito = localStorage.getItem("@favorito");
@@ -49,9 +49,6 @@ function Sobre(){
             localStorage.setItem("@favorito", JSON.stringify(filmesSalvos))
             toast.success("Filme salvo com sucesso")
         }
-
-        
-
     }
 
     if(loading){
@@ -75,7 +72,7 @@ function Sobre(){
            
            <div className="button">
             <button onClick={salvarFilme}>Favoritar</button>
-            <Link rel="external" to={`https://www.youtube.com/results?search_query=${detalhes.title} trailer`} target="blank">Trailer</Link>
+            <Link rel="external" to={`https://www.youtube.com/results?search_query=${detalhes.title} trailer`} target="_blank">Trailer</Link>
            </div>
         </div>
         </div>
