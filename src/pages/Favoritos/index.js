@@ -40,7 +40,7 @@ function Favoritos(){
                             <img key={item.id} alt={item.title} src={`http://image.tmdb.org/t/p/original/${item.poster_path}`}/>
                             <div className="li">
                                 <li className="bold" key={item.id}>{item.title}</li>
-                                <li key={item.id}>{item.overview}</li>
+                                <li className="sinopsi" key={item.id}>{item.overview}</li>
                             </div>
                         </Link>
                                 <button onClick={()=> excluirFilme(item.id) } className="excluir">excluir</button>

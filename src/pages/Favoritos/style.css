@@ -78,3 +78,45 @@
     background-color: #202020;
     color: #fff;
 }
+
+/*Responcividade*/
+
+@media(max-width:800px){
+.excluir{
+    width: 85px;
+}
+.sinopsi{
+    display: none;
+}
+.li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.bold{
+  font-size: 30px;
+}
+}
+@media(max-width:650px){
+    .bold{
+        font-size: 25px;
+    }
+}
+@media(max-width:490px){
+    .excluir{
+        font-size: 15px;
+        height: 100px;
+    }
+    .posicao{
+        height: 100px;
+    }
+    .posicao img{
+        height: 96px;
+        width: 80px;
+    }
+    .bold{
+        margin-top: -10px;
+        font-size: 15px;
+    }
+}
