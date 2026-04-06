@@ -13,14 +13,24 @@ function Home(){
     useEffect(()=>{
 
         async function loadFilmes(){
-            const response = await api.get("movie/now_playing", {
+            const [response, response2] = await Promise.all([ api.get("movie/now_playing", {
                 params:{
                 api_key: "a1df0f03470df6b9f1b3f027f5f5b119",
                 language: "pt-br",
                 page: 1,
             }
+        }),
+        api.get("movie/now_playing", {
+                params:{
+                api_key: "a1df0f03470df6b9f1b3f027f5f5b119",
+                language: "pt-br",
+                page: 2,
+                }
         })
-            setFilmes(response.data.results)
+        ]);
+
+        const filmes = [...response.data.results, ...response2.data.results ]
+            setFilmes(filmes)
             setLoad(false)
         }
         loadFilmes();
@@ -37,12 +47,12 @@ if(load){
 }
 
     return(
-        <div className="container">
+        <div className="container-home">
             <div className="lista-filmes">
                 {filmes.map((filme)=>{
                     return(
                          <article key={filme.id} className="article">
-                        <strong className="titulo">{filme.title}</strong>
+                        
                         <img className="capa" src={`http://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}/>
                         <Link className="acessar" to={`/sobre/${filme.id}`}>Acessar</Link>
 

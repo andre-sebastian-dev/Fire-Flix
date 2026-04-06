@@ -1,30 +1,37 @@
-
-.lista-filmes{
-    margin: 14px auto ;
-    max-width: 800px;
+.container-home{
+    display: flex;
+    justify-content: center;
+}
+.lista-filmes{   
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 25px;
+    padding: 20px;
+    
+    
 }
 .lista-filmes article{
     margin-top: 40px;
     width: 100%;
     padding: 15px;
-    border-radius: 4px;
+    
 }
 .article strong{
     font-size: 35px;
 }
 .capa{
-    width: 1000px;
+    
+    width: 200px;
     max-width: 100%;
-    max-height: 550px;
-    object-fit: cover;
+    max-height: 270px;
     display: block;
     border-radius: 8px 8px 0 0;
-    margin-top: 14px;
+    
     
     
 }
 .acessar{
-    width: 1000px;
+    width: 200px;
     max-width: 100%;
     height: 50px;
     background-color: #cf2b0e;

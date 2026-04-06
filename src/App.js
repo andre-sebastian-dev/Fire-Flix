@@ -4,7 +4,7 @@ import RoutesApp from "./routes";
 function App() {
   return (
     <div className="app">
-    <ToastContainer autoClose={3000}/>
+    <ToastContainer autoClose={1500}/>
     <RoutesApp/>
     </div>
   );

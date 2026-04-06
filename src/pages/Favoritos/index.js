@@ -18,7 +18,9 @@ function Favoritos(){
         })
         setFilmes(filtrofilmes);
         localStorage.setItem("@favorito", JSON.stringify(filtrofilmes))
-        toast.success("filme excluido com sucesso")
+        toast.success("filme excluido com sucesso",{
+            position:"bottom-right"
+        })
     }
 
 

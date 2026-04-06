@@ -24,7 +24,9 @@ function Sobre(){
                 setLoading(false)
             })
             .catch(()=>{
-                console.log("Filme não encontrado")
+                console.log("Filme não encontrado",{
+            position:"bottom-right"
+        })
                 navigate("/", {replace: true});
                 return;
             })
@@ -41,13 +43,17 @@ function Sobre(){
 
         const hasFilmes = filmesSalvos.some((filmeSalvo)=> filmeSalvo.id === detalhes.id)
         if(hasFilmes){
-            toast.warn("Esse filme já foi salvo!")
+            toast.warn("Esse filme já foi salvo!",{
+            position:"bottom-right"
+        })
             return;
         }
         else{
             filmesSalvos.push(detalhes)
             localStorage.setItem("@favorito", JSON.stringify(filmesSalvos))
-            toast.success("Filme salvo com sucesso")
+            toast.success("Filme salvo com sucesso",{
+            position:"bottom-right"
+        })
         }
     }
 

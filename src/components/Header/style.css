@@ -29,10 +29,11 @@
 .botao{
     text-decoration: none;
     display: flex;
-    padding: 5px 25px;
+    padding: 10px 25px;
     background-color: #df480d;
     color: #000;
     font-weight: bold;
+    font-size: 18px;
     border-radius: 4px;
     transition: all 0.5s;
     margin-left: 15px;
