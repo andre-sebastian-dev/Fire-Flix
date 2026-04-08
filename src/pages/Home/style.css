@@ -6,7 +6,7 @@
 .lista-filmes{   
     display: grid;
     grid-template-columns: repeat(5,1fr);
-    gap: 25px;
+    gap: 20px;
     padding: 0;
 }
 
@@ -82,20 +82,22 @@
     }
     .lista-filmes{
     display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
+    grid-template-columns: 2,1fr;
+    gap: 0px;
+
+    
     }
     .article{
         height: auto;
     }
     .capa{
-    width: 300px;
-    height: 400px;
+    width: 150px;
+    height: 200px;
     display: block;
     max-height: none;
     }
     .acessar{
-        width: 300px;
+        width: 150px;
         margin-bottom: -40px;
     }
 }
